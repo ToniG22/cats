@@ -1,8 +1,12 @@
 <template>
-  <div class="cats">
-    <img v-for="cat in fetchedData" :src="cat.url" />
+  <div class="wraper">
+    <div class="cats">
+      <img v-for="cat in fetchedData" :src="cat.url" :key="cat.id" />
+    </div>
+    <div class="btn">
+      <button class="catBtn" @click="$emit('anotherCatEvent')">CLICK ME!</button>
+    </div>
   </div>
-  <button @click="$emit('anotherCatEvent')">CLICK ME!</button>
 </template>
 
 <script>
@@ -16,12 +20,20 @@ export default {
 </script>
 
 <style scoped>
-.cats {
-  display: grid;
-  gap: 100px;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
+.wraper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
   align-items: center;
+}
+
+.catBtn {
+  background-color: sandybrown;
+  height: 100px;
+  width: 350px;
+  border-radius: 0.5rem;
 }
 
 img {

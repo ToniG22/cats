@@ -1,7 +1,7 @@
 <template>
   <div class="topbar">
     <nav>
-      <RouterLink class="routerLink" v-for="route in routesData" :to="route.path">
+      <RouterLink class="routerLink" v-for="route in routesData" :to="route.path" :key="route.name">
         {{ route.name }}
       </RouterLink>
     </nav>
@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink } from 'vue-router'
 
 export default {
   name: 'TopBarView',
   props: {
     routesData: Array
   },
-  components: { RouterLink, RouterView }
+  components: RouterLink
 }
 </script>
 
@@ -27,7 +27,7 @@ export default {
   top: 0;
   width: 100vw;
   z-index: 200;
-  height: 50px;
+  height: 40px;
   background-color: white;
   align-content: center;
   text-align: right;
