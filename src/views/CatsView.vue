@@ -1,13 +1,14 @@
 <template>
   <div class="cats">
-    <button>Click</button>
     <img v-for="cat in fetchedData" :src="cat.url" />
-    <h1>This is an cats page</h1>
   </div>
+  <button @click="$emit('anotherCatEvent')">CLICK ME!</button>
 </template>
 
 <script>
 export default {
+  name: 'CatsView',
+  emits: ['anotherCatEvent'],
   props: {
     fetchedData: Array
   }
