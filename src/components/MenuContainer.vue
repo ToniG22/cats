@@ -12,6 +12,7 @@ export default {
       links: []
     }
   },
+  components: { MenuView },
   created() {
     this.$router.options.routes.forEach((route) => {
       this.links.push({
