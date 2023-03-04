@@ -4,7 +4,7 @@
 
 <script>
 import CatsView from '../views/CatsView.vue'
-const catsUrl = 'https://api.thecatapi.com/v1/images/search?size=full'
+const catsUrl = 'https://api.thecatapi.com/v1/images/search?size=5'
 const apiKey = 'live_tAan3X2z0vxtNNgb5bsXo0D2B14n9HkCgdFk8X8MGUrPKInUUImYgCfEwxJlAQPr'
 
 export default {
@@ -22,7 +22,7 @@ export default {
     this.fetchedCats = await fetch(
       catsUrl,
       { headers: { 'x-api-key': apiKey } },
-      { mode: 'no-cors' }
+      { mode: 'cors' }
     ).then((r) => r.json())
   },
   methods: {
@@ -31,7 +31,7 @@ export default {
       this.fetchedCats = await fetch(
         catsUrl,
         { headers: { 'x-api-key': apiKey } },
-        { mode: 'no-cors' }
+        { mode: 'cors' }
       ).then((r) => r.json())
     }
   }

@@ -2,7 +2,7 @@
   <div id="menu">
     <div id="menu-items">
       <RouterLink
-        class="menu-item"
+        class="menu-item magic"
         v-for="(link, index) in linksData"
         :to="link.path"
         :key="index"
@@ -48,6 +48,26 @@ export default {
   width: 100vw;
   display: flex;
   align-items: center;
+}
+
+.magic {
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(to right, var(--green3), var(--green2), var(--green1), var(--green3));
+
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: -200% center;
+  }
 }
 
 .menu-item {

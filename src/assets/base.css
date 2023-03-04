@@ -1,5 +1,9 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+  --green1: #93e4c1;
+  --green2: #118a7e;
+  --green3: #1f6f78;
+
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
@@ -60,6 +64,7 @@
 }
 
 body {
+  overflow: hidden;
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
