@@ -35,7 +35,7 @@ export default {
     this.menu = document.getElementById('menu')
   },
   methods: {
-    checkDataset: function (index) {
+    setDataset: function (index) {
       this.menu.dataset.activeIndex = index
     }
   }
