@@ -6,11 +6,12 @@
         v-for="(link, index) in linksData"
         :to="link.path"
         :key="index"
-        @mouseover="checkDataset(index)"
+        @mouseover="setDataset(index)"
         >{{ link.name }}</RouterLink
       >
     </div>
     <div id="menu-background-pattern"></div>
+    <div id="menu-background-image"></div>
   </div>
 </template>
 
@@ -32,12 +33,10 @@ export default {
   },
   mounted() {
     this.menu = document.getElementById('menu')
-    console.log(this.menu.dataset)
   },
   methods: {
     checkDataset: function (index) {
       this.menu.dataset.activeIndex = index
-      console.log(this.menu.dataset)
     }
   }
 }
@@ -90,24 +89,58 @@ export default {
   top: 0px;
   z-index: 1;
 
-  transition: opacity 800ms, background-size 800ms;
+  transition: opacity 800ms ease, background-size 800ms ease, background-position 800ms ease;
 }
 
-/* It's not working still */
+#menu-background-image {
+  height: 100%;
+  width: 100%;
+
+  background-image: url(https://images.unsplash.com/photo-1531214547534-50935aeb3448?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8);
+
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+
+  background-position: center 50%;
+  background-size: 110vmax;
+  opacity: 0.25;
+
+  transition: opacity 800ms ease, background-size 800ms ease, background-position 800ms ease;
+}
+
 #menu-items:hover ~ #menu-background-pattern {
   background-size: 11vmin 11vmin;
   opacity: 0.5;
 }
 
+#menu-items:hover ~ #menu-background-image {
+  background-size: 100vmax;
+  opacity: 0.1;
+}
+
 #menu[data-active-index='0'] > #menu-background-pattern {
-  background-position: 0% - 33%;
+  background-position: 0% -33%;
 }
 
 #menu[data-active-index='1'] > #menu-background-pattern {
-  background-position: 34% - 66%;
+  background-position: 0% -66%;
 }
 
 #menu[data-active-index='2'] > #menu-background-pattern {
-  background-position: 67% - 100%;
+  background-position: 0% -100%;
+}
+
+#menu[data-active-index='0'] > #menu-background-image {
+  background-position: center 30%;
+}
+
+#menu[data-active-index='1'] > #menu-background-image {
+  background-position: center 60%;
+}
+
+#menu[data-active-index='2'] > #menu-background-image {
+  background-position: center 90%;
 }
 </style>
